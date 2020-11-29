@@ -50,6 +50,26 @@
   
   services.tailscale.enable = true;
   services.qemuGuest.enable = true;
+services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    # other Nginx options
+    virtualHosts."koom.tatmanhui.com" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/unifi/" = {
+        proxyPass = "https://dunmanifestin:8443";
+        proxyWebsockets = true; # needed if you need to use WebSocket
+        extraConfig =
+          # required when the target is also TLS server with multiple hosts
+          "proxy_ssl_server_name on;" +
+          # required when the server wants to use HTTP Authentication
+          "proxy_pass_header Authorization;"
+          ;
+      };
+    };
+};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -64,6 +84,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
 
