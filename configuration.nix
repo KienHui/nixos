@@ -50,7 +50,7 @@
   
   services.tailscale.enable = true;
   services.qemuGuest.enable = true;
-services.nginx = {
+  services.nginx = {
     enable = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
@@ -69,7 +69,12 @@ services.nginx = {
           ;
       };
     };
-};
+  };
+
+  security.acme = {
+    email = "m@tatmanhui.com";
+    acceptTerms = true;
+  }
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
