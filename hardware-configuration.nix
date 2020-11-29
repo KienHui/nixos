@@ -20,5 +20,5 @@
     [ { device = "/dev/disk/by-uuid/31873e5c-014e-45bf-b0e0-bc8fe79e0418"; }
     ];
 
-  virtualisation.hypervGuest.enable = true;
+  # virtualisation.hypervGuest.enable = true;
 }

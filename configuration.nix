@@ -19,7 +19,7 @@
   boot.initrd.checkJournalingFS = false;
   boot.kernel.sysctl = {"net.ipv4.ip_forward" = 1;};
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "Koom"; # Define your hostname.
   
   # Set your time zone.
   time.timeZone = "UTC";
@@ -49,6 +49,7 @@
   # services.openssh.enable = true;  
   
   services.tailscale.enable = true;
+  services.qemuGuest.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
