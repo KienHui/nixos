@@ -50,26 +50,26 @@
   
   services.tailscale.enable = true;
   services.qemuGuest.enable = true;
-  services.nginx = {
-    enable = false;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
+  #services.nginx = {
+    #enable = false;
+    #recommendedProxySettings = true;
+    #recommendedTlsSettings = true;
     # other Nginx options
-    virtualHosts."koom.tatmanhui.com" =  {
+    #virtualHosts."koom.tatmanhui.com" =  {
       #enableACME = true;
       #forceSSL = true;
-      locations."/unifi/" = {
-        proxyPass = "https://dunmanifestin:8443";
-        proxyWebsockets = true; # needed if you need to use WebSocket
-        extraConfig =
+      #locations."/unifi/" = {
+       # proxyPass = "https://dunmanifestin:8443";
+        #proxyWebsockets = true; # needed if you need to use WebSocket
+        #extraConfig =
           # required when the target is also TLS server with multiple hosts
-          "proxy_ssl_server_name on;" +
+          #"proxy_ssl_server_name on;" +
           # required when the server wants to use HTTP Authentication
-          "proxy_pass_header Authorization;"
-          ;
-      };
-    };
-  };
+          #"proxy_pass_header Authorization;"
+         # ;
+      #};
+   # };
+  #};
 
   #security.acme = {
   #  email = "m@tatmanhui.com";
