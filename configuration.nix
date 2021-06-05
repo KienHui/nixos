@@ -51,13 +51,13 @@
   services.tailscale.enable = true;
   services.qemuGuest.enable = true;
   services.nginx = {
-    enable = true;
+    enable = false;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     # other Nginx options
     virtualHosts."koom.tatmanhui.com" =  {
-      enableACME = true;
-      forceSSL = true;
+      #enableACME = true;
+      #forceSSL = true;
       locations."/unifi/" = {
         proxyPass = "https://dunmanifestin:8443";
         proxyWebsockets = true; # needed if you need to use WebSocket
@@ -71,9 +71,9 @@
     };
   };
 
-  security.acme = {
-    email = "m@tatmanhui.com";
-    acceptTerms = true;
+  #security.acme = {
+  #  email = "m@tatmanhui.com";
+  #  acceptTerms = true;
   };
 
   # Open ports in the firewall.
