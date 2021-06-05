@@ -74,7 +74,7 @@
   #security.acme = {
   #  email = "m@tatmanhui.com";
   #  acceptTerms = true;
-  };
+  #};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
