@@ -17,7 +17,10 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.initrd.checkJournalingFS = false;
-  boot.kernel.sysctl = {"net.ipv4.ip_forward" = 1;};
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
 
   networking.hostName = "Koom"; # Define your hostname.
   
